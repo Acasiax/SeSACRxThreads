@@ -28,25 +28,28 @@ class PhoneViewController: UIViewController {
     }
     
     func bind() {
+        //MARK: - 들어가는 거
         let input = PhoneViewModel.Input(
+            tap: nextButton.rx.tap.asControlEvent(),
             phoneNumber: phoneTextField.rx.text.orEmpty.asObservable(),
-            nextTap: nextButton.rx.tap.asControlEvent()
+            text: phoneTextField.rx.text
         )
         
         let output = viewModel.transform(input: input)
+        //MARK: - 나오는거 3가지
         
         output.validText
-            .bind(to: nextButton.rx.title())
+            .bind(to: nextButton.rx.title(for: .normal))
             .disposed(by: disposeBag)
         
         output.isValid
             .bind(to: nextButton.rx.isEnabled)
             .disposed(by: disposeBag)
         
-        output.nextTap
-            .bind { [weak self] in
+        output.tap
+            .bind { _ in
                 print("버튼이 클릭됐어요")
-                self?.navigationController?.pushViewController(NicknameViewController(), animated: true)
+                self.navigationController?.pushViewController(NicknameViewController(), animated: true)
             }
             .disposed(by: disposeBag)
     }

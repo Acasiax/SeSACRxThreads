@@ -33,6 +33,7 @@
 		04F6DC022C5B0D8200667F4D /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04F6DC012C5B0D8200667F4D /* DetailViewController.swift */; };
 		AA7271CF2C606BC2007551C4 /* PhoneViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA7271CE2C606BC2007551C4 /* PhoneViewModel.swift */; };
 		AA7271D12C606C71007551C4 /* BirthDayViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA7271D02C606C71007551C4 /* BirthDayViewModel.swift */; };
+		AA7271D32C607C13007551C4 /* NickNameViewmodel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA7271D22C607C13007551C4 /* NickNameViewmodel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -80,6 +81,7 @@
 		04F6DC012C5B0D8200667F4D /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		AA7271CE2C606BC2007551C4 /* PhoneViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhoneViewModel.swift; sourceTree = "<group>"; };
 		AA7271D02C606C71007551C4 /* BirthDayViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BirthDayViewModel.swift; sourceTree = "<group>"; };
+		AA7271D22C607C13007551C4 /* NickNameViewmodel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NickNameViewmodel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -202,6 +204,7 @@
 				AA7271CE2C606BC2007551C4 /* PhoneViewModel.swift */,
 				041280722AEFAD4B00972552 /* NicknameViewController.swift */,
 				AA7271D02C606C71007551C4 /* BirthDayViewModel.swift */,
+				AA7271D22C607C13007551C4 /* NickNameViewmodel.swift */,
 			);
 			path = SignUpOptional;
 			sourceTree = "<group>";
@@ -369,6 +372,7 @@
 				04F6DBFE2C5B0C0300667F4D /* SearchViewController.swift in Sources */,
 				04F6DC002C5B0C2200667F4D /* SearchTableViewCell.swift in Sources */,
 				041280732AEFAD4B00972552 /* NicknameViewController.swift in Sources */,
+				AA7271D32C607C13007551C4 /* NickNameViewmodel.swift in Sources */,
 				0412806A2AEFA91E00972552 /* SignUpViewController.swift in Sources */,
 				041280712AEFAD3D00972552 /* PhoneViewController.swift in Sources */,
 				041280262AEF9BAB00972552 /* SceneDelegate.swift in Sources */,
