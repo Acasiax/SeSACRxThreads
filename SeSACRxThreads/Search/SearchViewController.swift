@@ -35,6 +35,8 @@ class SearchViewController: UIViewController {
     
     lazy var list = BehaviorSubject(value: data)
     
+    let viewModel = SearchViewModel()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -42,6 +44,7 @@ class SearchViewController: UIViewController {
         configure()
         setSearchController()
         bind()
+        bindRefactoring()
     }
     
     func bind() {
@@ -94,23 +97,23 @@ class SearchViewController: UIViewController {
         //debounce vs throttle
         //final
         
-        //실시간 검색기능
-//        searchBar.rx.text.orEmpty
-//            .debounce(.seconds(1), scheduler: MainScheduler.instance) //있고 없고가 차이가 큼🌟
-//            .distinctUntilChanged()
-//            .bind(with: self) { owner, value in
-//                print("실시간 검색", value)
-//                
-//            
-//              // let result = owner.data.filter{$0.contains(value)}
-//                let result = value.isEmpty ? owner.data : owner.data.filter {
-//                    $0.contains(value) }
-//                
-//                owner.list.onNext(result)
-//            }
-//            .disposed(by: disposeBag)
+
         
          
+    }
+    
+    
+    func bindRefactoring() {
+        searchBar.rx.text.orEmpty
+            .bind(to: viewModel.inputQuery)
+            .disposed(by: disposeBag)
+        
+        
+        searchBar.rx.searchButtonClicked
+            .bind(to: viewModel.inputSearchButtonTap)
+            .disposed(by: disposeBag)
+        
+        
     }
      
     private func setSearchController() {

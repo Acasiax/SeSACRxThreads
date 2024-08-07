@@ -34,6 +34,7 @@
 		AA7271CF2C606BC2007551C4 /* PhoneViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA7271CE2C606BC2007551C4 /* PhoneViewModel.swift */; };
 		AA7271D12C606C71007551C4 /* BirthDayViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA7271D02C606C71007551C4 /* BirthDayViewModel.swift */; };
 		AA7271D32C607C13007551C4 /* NickNameViewmodel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA7271D22C607C13007551C4 /* NickNameViewmodel.swift */; };
+		AA7271EB2C62FEEB007551C4 /* SearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA7271EA2C62FEEB007551C4 /* SearchViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -82,6 +83,7 @@
 		AA7271CE2C606BC2007551C4 /* PhoneViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhoneViewModel.swift; sourceTree = "<group>"; };
 		AA7271D02C606C71007551C4 /* BirthDayViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BirthDayViewModel.swift; sourceTree = "<group>"; };
 		AA7271D22C607C13007551C4 /* NickNameViewmodel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NickNameViewmodel.swift; sourceTree = "<group>"; };
+		AA7271EA2C62FEEB007551C4 /* SearchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -215,6 +217,7 @@
 				04F6DBFD2C5B0C0300667F4D /* SearchViewController.swift */,
 				04F6DBFF2C5B0C2200667F4D /* SearchTableViewCell.swift */,
 				04F6DC012C5B0D8200667F4D /* DetailViewController.swift */,
+				AA7271EA2C62FEEB007551C4 /* SearchViewModel.swift */,
 			);
 			path = Search;
 			sourceTree = "<group>";
@@ -364,6 +367,7 @@
 				041280652AEFA2F000972552 /* SignTextField.swift in Sources */,
 				0412806C2AEFABFE00972552 /* PasswordViewController.swift in Sources */,
 				041280562AEFA04800972552 /* SignInViewController.swift in Sources */,
+				AA7271EB2C62FEEB007551C4 /* SearchViewModel.swift in Sources */,
 				041280282AEF9BAB00972552 /* ViewController.swift in Sources */,
 				041280632AEFA0CE00972552 /* PointButton.swift in Sources */,
 				04F6DC022C5B0D8200667F4D /* DetailViewController.swift in Sources */,
