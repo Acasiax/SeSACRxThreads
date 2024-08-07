@@ -30,10 +30,10 @@ class SearchViewController: UIViewController {
        
     let disposeBag = DisposeBag()
     
-    var data = ["A", "B", "C", "AB", "D", "ABC", "BBB", "EC", "SA", "AAAB", "ED", "F", "G", "H"]
+//    var data = ["A", "B", "C", "AB", "D", "ABC", "BBB", "EC", "SA", "AAAB", "ED", "F", "G", "H"]
+//    
     
-    
-    lazy var list = BehaviorSubject(value: data)
+  //  lazy var list = BehaviorSubject(value: data)
     
     let viewModel = SearchViewModel()
     
@@ -48,7 +48,7 @@ class SearchViewController: UIViewController {
     }
     
     func bind() {
-        list
+     viewModel.list
             .bind(to: tableView.rx.items(cellIdentifier: SearchTableViewCell.identifier, cellType: SearchTableViewCell.self)) { (row, element, cell) in
                  
                 
@@ -79,20 +79,20 @@ class SearchViewController: UIViewController {
         
         // .withUnretained(self) //순환참조 신경 안쓰게 도와주는 것임
         
-        searchBar.rx.searchButtonClicked
-          
-            .withLatestFrom(searchBar.rx.text.orEmpty) {void, text in
-                return text
-                //+ "만세"
-            }
-         
-            .bind(with: self) { owner, value in
-                owner.data.insert(value, at: 0)
-                owner.list.onNext(owner.data)
-                print("검색버튼을 클릭했습니다.")
-            }
-            .disposed(by: disposeBag)
-        
+//        searchBar.rx.searchButtonClicked
+//          
+//            .withLatestFrom(searchBar.rx.text.orEmpty) {void, text in
+//                return text
+//                //+ "만세"
+//            }
+//         
+//            .bind(with: self) { owner, value in
+//                owner.data.insert(value, at: 0)
+//                owner.list.onNext(owner.data)
+//                print("검색버튼을 클릭했습니다.")
+//            }
+//            .disposed(by: disposeBag)
+//        
         
         //debounce vs throttle
         //final
@@ -104,6 +104,17 @@ class SearchViewController: UIViewController {
     
     
     func bindRefactoring() {
+        viewModel.list
+            .bind(to: tableView.rx.items(cellIdentifier: SearchTableViewCell.identifier, cellType: SearchTableViewCell.self)){ row, element, cell in
+                
+                cell.appIconImageView.backgroundColor = .systemBlue
+                cell.downloadButton.rx.tap.subscribe(with: self) { owner, _ in
+                    owner.navigationController?.pushViewController(DetailViewController(), animated: true)
+                }
+                
+            }
+            .disposed(by: disposeBag)
+        
         searchBar.rx.text.orEmpty
             .bind(to: viewModel.inputQuery)
             .disposed(by: disposeBag)
