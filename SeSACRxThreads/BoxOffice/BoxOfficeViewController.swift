@@ -24,22 +24,37 @@ class BoxOfficeViewController: UIViewController {
         super.viewDidLoad()
         configure()
         bind()
+        
     }
     
     
     func bind() {
             
-            let input = BoxOfficeViewModel.Input()
-            let output = viewModel.transform(input: input)
+        let recentText = PublishSubject<String>()
+        
+        let input = BoxOfficeViewModel.Input(searchButtonTap: searchBar.rx.searchButtonClicked, searchText: searchBar.rx.text.orEmpty, recentText: recentText)
+        
+        
+        let output = viewModel.transform(input: input)
             
             // 테이블뷰에 movieList 바인딩
-            output.recentList
-                .bind(to: collectionView.rx.items(cellIdentifier: MovieCollectionViewCell.identifier, cellType: MovieCollectionViewCell.self)) {
-                    (row, element, cell) in
-                  
-                      cell.label.text = "\(element), \(row)"
-                }
-                .disposed(by: disposeBag)
+        output.movieList
+            .bind(to: tableView.rx.items(cellIdentifier: MovieTableViewCell.identifier, cellType: MovieTableViewCell.self)) { (row, element, cell) in
+                cell.appNameLabel.text = element
+              //  cell.label.text = "\(element), \(row)"
+                
+            }.disposed(by: disposeBag)
+        
+        output.recentList
+            .bind(to: collectionView.rx.items(cellIdentifier: MovieCollectionViewCell.identifier, cellType: MovieCollectionViewCell.self)) { (row, element, cell ) in
+                cell.label.text = element
+               // cell.label.text = "\(element), \(row)"
+            }.disposed(by: disposeBag)
+        
+        // - 테이블뷰셀 클릭 => 데이터 가져오기 => 검색어는 테스트2 라는 형태로 문자열 => 컬렉션뷰 데이터로 전달
+        // -> vm.recentList.append -> output을 통해 collectionView에 반영
+        // - modelSelected > Data
+        // - itemSelected > IndexPath
             
             // Observable.zip 사용하여 modelSelected와 itemSelected 동시에 처리
             Observable.zip(tableView.rx.modelSelected(String.self),
@@ -48,8 +63,12 @@ class BoxOfficeViewController: UIViewController {
             .debug("잭잭잭 박") // 디버깅을 위해 Observable의 이벤트를 콘솔에 출력하는 메소드 (프린트의 대체재)
         // 나중에 최종 프로젝트 제출 시에는 이 코드를 삭제해야 함
         // 심사위원이 지원자가 충분히 테스트하지 않았다고 생각할 수 있음
+        // 몇 번째줄 어떤 명령을 수행했는지 구체적으로 확인 가능, print의 대체재, identifier도 넣을 수 있음
             .map {"검색어는 \($0.0)"}
                 .subscribe(with: self) { owner, value in
+                    // 여기서 input으로 데이터를 보내줘야돼 어떻게?
+                    // - 큰데에서 작은데로 들어가는건 쉬우니까 변수로 선언해두고 그 변수를 바꿔주자!
+                    recentText.onNext(value)
                     print(value)
                 }
                 .disposed(by: disposeBag)
@@ -57,14 +76,14 @@ class BoxOfficeViewController: UIViewController {
             // modelSelected 처리
             tableView.rx.modelSelected(String.self)
                 .subscribe(with: self) { owner, value in
-                    print("Selected model:", value)
+                    print("선택된 model:", value)
                 }
                 .disposed(by: disposeBag)
             
             // itemSelected 처리
             tableView.rx.itemSelected
                 .subscribe(with: self) { owner, indexPath in
-                    print("Selected item at indexPath:", indexPath)
+                    print("선택된 item의 indexPath:", indexPath)
                 }
                 .disposed(by: disposeBag)
         }
@@ -79,8 +98,8 @@ class BoxOfficeViewController: UIViewController {
         navigationItem.titleView = searchBar
         
         
-                collectionView.backgroundColor = .lightGray
-        collectionView.register(MovieCollectionViewCell.self, forCellWithReuseIdentifier: "MovieCell")
+        collectionView.backgroundColor = .lightGray
+        collectionView.register(MovieCollectionViewCell.self, forCellWithReuseIdentifier: MovieCollectionViewCell.identifier)
         collectionView.backgroundColor = .lightGray
         collectionView.snp.makeConstraints { make in
             make.top.equalTo(view.safeAreaLayoutGuide)

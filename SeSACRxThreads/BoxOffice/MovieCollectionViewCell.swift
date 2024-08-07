@@ -14,7 +14,7 @@ class MovieCollectionViewCell: UICollectionViewCell {
     let label = UILabel()
     
     override init(frame: CGRect) {
-        fatalError("init(coder:) has not been implemented")
+        super.init(frame: frame)
         
         
         contentView.addSubview(label)
@@ -24,7 +24,9 @@ class MovieCollectionViewCell: UICollectionViewCell {
             make.edges.equalTo(contentView)
         }
         
-        layer
+        layer.cornerRadius = 8
+        layer.borderWidth = 1
+        layer.borderColor = UIColor.black.cgColor
         
         
     }
