@@ -79,7 +79,8 @@ class SearchViewController: UIViewController {
         searchBar.rx.searchButtonClicked
           
             .withLatestFrom(searchBar.rx.text.orEmpty) {void, text in
-                return text + "만세"
+                return text
+                //+ "만세"
             }
          
             .bind(with: self) { owner, value in

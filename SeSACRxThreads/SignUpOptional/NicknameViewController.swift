@@ -32,6 +32,11 @@ class NicknameViewController: UIViewController {
         //보통 구독을 할 때마다 새로운 스트림이 생긴다.
         //share를 통해서 스트림을 공유하게 만들 수 있다.
         
+        //share를 안쓰고 스트림을 공유할 수 없을까?
+        //sunscribe에서 ui스럽게 bind로 왔다면,
+        //구독할 때 스트림을 공유하게 만들어주는 또다른 친구 (share) 말고 -> drive 이다!
+        //subscribe vs bind
+        
         // MARK: - Input
         let input = NickNameViewModel.Input(
             tap: nextButton.rx.tap.asControlEvent(),
