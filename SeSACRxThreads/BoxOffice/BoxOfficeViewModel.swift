@@ -9,6 +9,16 @@ import Foundation
 import RxSwift
 import RxCocoa
 
+/*
+ Observable Create.
+ Network.. AF.request.. >>
+ - Memory Leak
+ - RxSwift Single
+ 
+ 
+ */
+
+
 class BoxOfficeViewModel {
     
     let disposeBag = DisposeBag()

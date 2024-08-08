@@ -60,7 +60,7 @@ class BoxOfficeViewController: UIViewController {
             Observable.zip(tableView.rx.modelSelected(String.self),
                            tableView.rx.itemSelected
             )
-            .debug("잭잭잭 박") // 디버깅을 위해 Observable의 이벤트를 콘솔에 출력하는 메소드 (프린트의 대체재)
+            .debug("잭잭잭 박") // 디버깅을 위해 Observable의 이벤트를 콘솔에 출력하는 메소드 (프린트의 대체재)🌟
         // 나중에 최종 프로젝트 제출 시에는 이 코드를 삭제해야 함
         // 심사위원이 지원자가 충분히 테스트하지 않았다고 생각할 수 있음
         // 몇 번째줄 어떤 명령을 수행했는지 구체적으로 확인 가능, print의 대체재, identifier도 넣을 수 있음
