@@ -7,6 +7,8 @@
 
 import UIKit
 import SnapKit
+import RxSwift
+import RxCocoa
 
 class SignInViewController: UIViewController {
 
@@ -14,6 +16,9 @@ class SignInViewController: UIViewController {
     let passwordTextField = SignTextField(placeholderText: "비밀번호를 입력해주세요")
     let signInButton = PointButton(title: "로그인")
     let signUpButton = UIButton()
+    
+    let viewModel = SignInViewModel()
+    let disposeBag = DisposeBag()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,7 +29,34 @@ class SignInViewController: UIViewController {
         configure()
         
         signUpButton.addTarget(self, action: #selector(signUpButtonClicked), for: .touchUpInside)
+        
+        
+        bind()
+        
     }
+    
+    func bind() {
+        
+      let input = SignInViewModel.Input(tap: signInButton.rx.tap)
+        
+      let output = viewModel.transform(input: input)
+        
+        output.text
+            .drive(emailTextField.rx.text)
+            .disposed(by: disposeBag)
+        
+        //Observable<string>: next, complete, error 다 전달 o
+        //RxSwift Trait, RxCoCoa Trait
+        //Driver >> drive로 바꿔야 함
+        //스트림 공유(share), 메인쓰레드 동작 보장, 오류 허용x
+        output.text
+         //   .asDriver(onErrorJustReturn: "") //
+            .drive(navigationItem.rx.title)
+            .disposed(by: disposeBag)
+        
+       
+    }
+    
     
     @objc func signUpButtonClicked() {
         navigationController?.pushViewController(SignUpViewController(), animated: true)

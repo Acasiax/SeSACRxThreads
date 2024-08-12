@@ -40,8 +40,9 @@
 		AA7271F22C630B08007551C4 /* MovieCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA7271F12C630B08007551C4 /* MovieCollectionViewCell.swift */; };
 		AA7271F42C630CF8007551C4 /* MovieTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA7271F32C630CF8007551C4 /* MovieTableViewCell.swift */; };
 		AA72721D2C6450E6007551C4 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA72721C2C6450E6007551C4 /* NetworkManager.swift */; };
-		AA72721F2C64517C007551C4 /* APIKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA72721E2C64517C007551C4 /* APIKey.swift */; };
 		AA7272212C64525D007551C4 /* Movie.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA7272202C64525D007551C4 /* Movie.swift */; };
+		AA72727D2C66F7D1007551C4 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = AA72727C2C66F7D1007551C4 /* .gitignore */; };
+		AA72727F2C66F7F1007551C4 /* APIKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA72727E2C66F7F1007551C4 /* APIKey.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -96,8 +97,9 @@
 		AA7271F12C630B08007551C4 /* MovieCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieCollectionViewCell.swift; sourceTree = "<group>"; };
 		AA7271F32C630CF8007551C4 /* MovieTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieTableViewCell.swift; sourceTree = "<group>"; };
 		AA72721C2C6450E6007551C4 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
-		AA72721E2C64517C007551C4 /* APIKey.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIKey.swift; sourceTree = "<group>"; };
 		AA7272202C64525D007551C4 /* Movie.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Movie.swift; sourceTree = "<group>"; };
+		AA72727C2C66F7D1007551C4 /* .gitignore */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
+		AA72727E2C66F7F1007551C4 /* APIKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIKey.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -151,7 +153,8 @@
 		041280222AEF9BAB00972552 /* SeSACRxThreads */ = {
 			isa = PBXGroup;
 			children = (
-				AA72721E2C64517C007551C4 /* APIKey.swift */,
+				AA72727C2C66F7D1007551C4 /* .gitignore */,
+				AA72727E2C66F7F1007551C4 /* APIKey.swift */,
 				AA7271EC2C630AC1007551C4 /* BoxOffice */,
 				041280532AEF9C1F00972552 /* SignUp 수업용 */,
 				041280542AEF9C2600972552 /* SignIn */,
@@ -365,6 +368,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				041280302AEF9BAC00972552 /* LaunchScreen.storyboard in Resources */,
+				AA72727D2C66F7D1007551C4 /* .gitignore in Resources */,
 				0412802D2AEF9BAC00972552 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -397,6 +401,7 @@
 				0412806F2AEFAD2D00972552 /* BirthdayViewController.swift in Sources */,
 				041280652AEFA2F000972552 /* SignTextField.swift in Sources */,
 				0412806C2AEFABFE00972552 /* PasswordViewController.swift in Sources */,
+				AA72727F2C66F7F1007551C4 /* APIKey.swift in Sources */,
 				041280562AEFA04800972552 /* SignInViewController.swift in Sources */,
 				AA7271EB2C62FEEB007551C4 /* SearchViewModel.swift in Sources */,
 				041280282AEF9BAB00972552 /* ViewController.swift in Sources */,
@@ -415,7 +420,6 @@
 				041280712AEFAD3D00972552 /* PhoneViewController.swift in Sources */,
 				AA72721D2C6450E6007551C4 /* NetworkManager.swift in Sources */,
 				041280262AEF9BAB00972552 /* SceneDelegate.swift in Sources */,
-				AA72721F2C64517C007551C4 /* APIKey.swift in Sources */,
 				041280582AEFA05300972552 /* SignInViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

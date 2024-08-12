@@ -50,6 +50,7 @@ final class NetworkManager {
                 
                 if let data = data, let appData = try? JSONDecoder().decode(Movie.self, from: data) {
                     observer.onNext(appData)
+                    observer.onCompleted() //🌟🌟
                 } else {
                     print("응답이 왔으나 실패")
                     observer.onError(APIError.unknownResponse)
@@ -60,7 +61,7 @@ final class NetworkManager {
          
             return Disposables.create()
             
-        }
+        }.debug("박스오피스 조회")
         return result
         
     }
