@@ -43,6 +43,8 @@
 		AA7272212C64525D007551C4 /* Movie.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA7272202C64525D007551C4 /* Movie.swift */; };
 		AA72727D2C66F7D1007551C4 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = AA72727C2C66F7D1007551C4 /* .gitignore */; };
 		AA72727F2C66F7F1007551C4 /* APIKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA72727E2C66F7F1007551C4 /* APIKey.swift */; };
+		AA72728E2C69A6C5007551C4 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = AA72728D2C69A6C5007551C4 /* Alamofire */; };
+		AA7272902C69A7F3007551C4 /* Joke.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA72728F2C69A7F3007551C4 /* Joke.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -100,6 +102,7 @@
 		AA7272202C64525D007551C4 /* Movie.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Movie.swift; sourceTree = "<group>"; };
 		AA72727C2C66F7D1007551C4 /* .gitignore */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 		AA72727E2C66F7F1007551C4 /* APIKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIKey.swift; sourceTree = "<group>"; };
+		AA72728F2C69A7F3007551C4 /* Joke.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Joke.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -108,6 +111,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				041280602AEFA0AC00972552 /* SnapKit in Frameworks */,
+				AA72728E2C69A6C5007551C4 /* Alamofire in Frameworks */,
 				0412805D2AEFA09E00972552 /* RxSwift in Frameworks */,
 				0412805B2AEFA09E00972552 /* RxCocoa in Frameworks */,
 			);
@@ -204,6 +208,7 @@
 			children = (
 				041280552AEFA04800972552 /* SignInViewController.swift */,
 				041280572AEFA05300972552 /* SignInViewModel.swift */,
+				AA72728F2C69A7F3007551C4 /* Joke.swift */,
 			);
 			path = SignIn;
 			sourceTree = "<group>";
@@ -274,6 +279,7 @@
 				0412805A2AEFA09E00972552 /* RxCocoa */,
 				0412805C2AEFA09E00972552 /* RxSwift */,
 				0412805F2AEFA0AC00972552 /* SnapKit */,
+				AA72728D2C69A6C5007551C4 /* Alamofire */,
 			);
 			productName = SeSACRxThreads;
 			productReference = 041280202AEF9BAB00972552 /* SeSACRxThreads.app */;
@@ -350,6 +356,7 @@
 			packageReferences = (
 				041280592AEFA09D00972552 /* XCRemoteSwiftPackageReference "RxSwift" */,
 				0412805E2AEFA0AC00972552 /* XCRemoteSwiftPackageReference "SnapKit" */,
+				AA72728C2C69A6C5007551C4 /* XCRemoteSwiftPackageReference "Alamofire" */,
 			);
 			productRefGroup = 041280212AEF9BAB00972552 /* Products */;
 			projectDirPath = "";
@@ -400,6 +407,7 @@
 				AA7271F22C630B08007551C4 /* MovieCollectionViewCell.swift in Sources */,
 				0412806F2AEFAD2D00972552 /* BirthdayViewController.swift in Sources */,
 				041280652AEFA2F000972552 /* SignTextField.swift in Sources */,
+				AA7272902C69A7F3007551C4 /* Joke.swift in Sources */,
 				0412806C2AEFABFE00972552 /* PasswordViewController.swift in Sources */,
 				AA72727F2C66F7F1007551C4 /* APIKey.swift in Sources */,
 				041280562AEFA04800972552 /* SignInViewController.swift in Sources */,
@@ -781,6 +789,14 @@
 				minimumVersion = 5.6.0;
 			};
 		};
+		AA72728C2C69A6C5007551C4 /* XCRemoteSwiftPackageReference "Alamofire" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Alamofire/Alamofire.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.9.1;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -798,6 +814,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 0412805E2AEFA0AC00972552 /* XCRemoteSwiftPackageReference "SnapKit" */;
 			productName = SnapKit;
+		};
+		AA72728D2C69A6C5007551C4 /* Alamofire */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = AA72728C2C69A6C5007551C4 /* XCRemoteSwiftPackageReference "Alamofire" */;
+			productName = Alamofire;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

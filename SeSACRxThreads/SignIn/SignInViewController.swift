@@ -42,6 +42,9 @@ class SignInViewController: UIViewController {
       let output = viewModel.transform(input: input)
         
         output.text
+            .map({ joke in
+                return joke.joke
+            })
             .drive(emailTextField.rx.text)
             .disposed(by: disposeBag)
         
@@ -50,6 +53,9 @@ class SignInViewController: UIViewController {
         //Driver >> drive로 바꿔야 함
         //스트림 공유(share), 메인쓰레드 동작 보장, 오류 허용x
         output.text
+            .map { value in
+                return "농담 \(value.id)"
+        }
          //   .asDriver(onErrorJustReturn: "") //
             .drive(navigationItem.rx.title)
             .disposed(by: disposeBag)
